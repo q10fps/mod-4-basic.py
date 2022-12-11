@@ -33,11 +33,8 @@ def savings(gross_pay, tax_rate, expenses):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    gross_pay = int()
-    tax_rate = 0.12
-    expenses = int()
-    print (gross_pay-(gross_pay*tax_rate)-expenses)
-    return (gross_pay-(gross_pay*tax_rate)-expenses)
+    result = (gross_pay-round(gross_pay*tax_rate)-expenses)
+    return int(result)
 
 
 def material_waste(total_material, material_units, num_jobs, job_consumption):
@@ -73,12 +70,10 @@ def material_waste(total_material, material_units, num_jobs, job_consumption):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    material_units = str()
-    total_material = int()
-    num_jobs = int()
-    job_consumption = int()
-    print (str(total_material-(num_jobs*job_consumption)) + (material_units))
-    return (str(total_material-(num_jobs*job_consumption)) + (material_units))
+
+    consumed = job_consumption*num_jobs
+    final_mat = total_material - consumed
+    return (str(final_mat) + material_units)
 
 
 def interest(principal, rate, periods):
@@ -109,12 +104,9 @@ def interest(principal, rate, periods):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    principal= int()
-    rate = float()
-    periods = int()
 
-    print (int ((principal)+principal*rate*periods))
-    return (int ((principal)+principal*rate*periods))
+    investment = principal + (principal * (rate*periods))
+    return(int(investment))
 
 def body_mass_index(weight, height):
     '''Body Mass Index.
@@ -146,8 +138,12 @@ def body_mass_index(weight, height):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    height = height[0] / 39.37 + height[1] / 39.37
-    weight = float(weight/2.205)
+    height_in = (height[0] * 12) + height[1]
 
-    return float((weight/(height**2)))
+    # Convert the weight in pounds to kilograms
+    weight_kg = weight / 2.2
+    
+    # Calculate the BMI
+    bmi = weight_kg / ((height_in  / 39.37)**2)
+    return bmi
 
